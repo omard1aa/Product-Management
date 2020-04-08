@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IProduct} from './product';
+import { StarComponent } from '../shared/star.component';
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +13,7 @@ export class ProductListComponent implements OnInit {
   showImage: boolean = false;
   imageWidth: number = 75;
   imageMargin: number = 2;
-
+  eventMsg: string;
   products: IProduct[] = [
     {
       productId: 1,
@@ -61,5 +62,9 @@ export class ProductListComponent implements OnInit {
     value = value.toLocaleLowerCase();
     return this.products.filter((product: IProduct) =>
     product.productName.toLocaleLowerCase().indexOf(value) !== -1);
+  }
+
+  whenRatingClick(message: string): void {
+    this.eventMsg = message;
   }
 }

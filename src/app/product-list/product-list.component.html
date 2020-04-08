@@ -8,7 +8,7 @@
 <div class="">
   <div class="card" style="padding: 5px; margin: 5px;">
     <div class="card-header">
-      {{ pageTitle }}
+      <h2>{{ pageTitle }}<span *ngIf="eventMsg">: {{ eventMsg }}</span></h2>
     </div>
     <div class="card-body ml-1 mr-1">
       <div class="row">
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="row">
-        <h2 class="col-sm-4">Filtered by: {{ listFilter }}</h2>
+        <h3 class="col-sm-4">Filtered by: {{ listFilter }}</h3>
       </div>
     </div>
     <div class="table-responsive">
@@ -42,8 +42,8 @@
           <td>{{ product.productName }}</td>
           <td>{{ product.productCode | toSpace: '-' }}</td>
           <td>{{ product.releaseDate }}</td>
-          <td><strong>{{ product.price | currency:'USD':'symbol':'1.2-2' | lowercase}}</strong></td>
-          <td>{{ product.productRate }}</td>
+          <td><strong>{{ product.price | currency:'USD':'symbol':'1.2-2' | lowercase }}</strong></td>
+          <td><app-star [rating]="product.productRate" (ratingClicked)='whenRatingClick($event)'>stars</app-star></td>
         </tr>
         </tbody>
       </table>

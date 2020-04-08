@@ -4,15 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
+
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces';
+
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import {StarComponent} from './shared/star.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ConvertToSpacesPipe,
+    StarComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,4 +29,3 @@ import { ProductListComponent } from './product-list/product-list.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
